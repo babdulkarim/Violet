@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import firebase from 'firebase';
 import { Spinner } from '@shoutem/ui';
 import { TabNavigator } from 'react-navigation';
-import ExploreTab from './client/containers/ExploreTab.js';
-import InboxTab from './client/containers/InboxTab.js';
-import ProfileTab from './client/containers/ProfileTab.js';
+import ExploreTab from './client/containers/ExploreTab';
+import InboxTab from './client/containers/InboxTab';
+import ProfileTab from './client/containers/ProfileTab';
+import SignUp from './client/components/SignUp';
+import { Font } from 'expo';
+import FontAwesome, { Icons } from 'react-native-fontawesome';
 
 export default class App extends Component {
 
@@ -25,6 +28,13 @@ export default class App extends Component {
 			(user) ? this.setState({signIn: true}) : this.setState({signIn: false});
 		});
 	}
+
+	// componentDidMount() {
+	// 	Font.loadAsync({
+	// // 		'Rubik-Regular': require('./node_modules/@shoutem/ui/fonts/Rubik-Regular.ttf'),
+	// 		'FontAwesome': require('./node_modules/react-native-fontawesome'),
+	// 	});
+	// }
 
 	checkSignIn() {
 		switch (this.state.signIn) {
@@ -48,6 +58,7 @@ export default class App extends Component {
 		});
 		return (
 			<MainNavigator/>
+			// <SignUp />
 		);
 	}
 }
