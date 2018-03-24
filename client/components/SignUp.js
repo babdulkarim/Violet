@@ -12,8 +12,7 @@ export default class SignUp extends Component {
 
   onSignUp() {
     const { email, password } = this.state;
-    this.setState( { error: '', loading: true });
-
+    
     const re = '\.edu$';
     if (!re.test(email)) {
       this.setState({ error: 'Please use a valid .edu email.' });
