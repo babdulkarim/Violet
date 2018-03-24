@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 import firebase from 'firebase';
 import { Spinner } from '@shoutem/ui';
+import { TabNavigator } from 'react-navigation';
 
-export default class App extends React.Component {
+export default class App extends Component {
+
 	state = { signIn: null };
 
 	componentWillMount() {
@@ -32,6 +34,15 @@ export default class App extends React.Component {
 		}
 	}
 	render() {
+		const MainNavigator = TabNavigator ({
+			ExploreScreen: { screen: ExploreTab },
+			InboxScreen: { screen: InboxTab },
+			ProfileScreen: { screen: ProfileTab },
+		}, {
+			navigationOptions: {
+	
+			}
+		});
 		return (
 			<SignUp/>
 		);
