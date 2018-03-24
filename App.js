@@ -4,9 +4,9 @@ import { StyleSheet, View, Text } from 'react-native';
 import firebase from 'firebase';
 import { TabNavigator } from 'react-navigation';
 import SignUp from './client/components/SignUp';
-// import ExploreTab from './client/containers/ExploreTab';
-// import InboxTab from './client/containers/InboxTab';
-// import ProfileTab from './client/containers/ProfileTab';
+import ExploreTab from './client/containers/ExploreTab';
+import InboxTab from './client/containers/InboxTab';
+import ProfileTab from './client/containers/ProfileTab';
 
 export default class App extends Component {
 
@@ -46,18 +46,18 @@ export default class App extends Component {
 		}
 	}
 	render() {
-		// const MainNavigator = TabNavigator ({
-		// 	ExploreScreen: { screen: ExploreTab },
-		// 	InboxScreen: { screen: InboxTab },
-		// 	ProfileScreen: { screen: ProfileTab },
-		// }, {
-		// 	navigationOptions: {
+		const MainNavigator = TabNavigator ({
+			ExploreScreen: { screen: ExploreTab },
+			InboxScreen: { screen: InboxTab },
+			ProfileScreen: { screen: ProfileTab },
+		}, {
+			navigationOptions: {
 	
-		// 	}
-		// });
+			}
+		});
 		return (
-			// <MainNavigator/>
-			<SignUp />
+			<MainNavigator/>
+			// <SignUp />
 		);
 	}
 }
