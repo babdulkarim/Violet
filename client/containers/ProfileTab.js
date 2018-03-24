@@ -13,7 +13,6 @@ export default class App extends Component {
       <Header />
         <Content>
           <Thumbnail large square source={{uri: 'http://static3.uk.businessinsider.com/image/54c64fa2dd0895c51d8b4567/report-the-nfl-has-video-of-a-person-of-interest-taking-the-patriots-game-balls-into-another-room-before-afc-title-game.jpg'}} />
-
         </Content>
 
         <Item inlineLabel last>
