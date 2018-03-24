@@ -1,14 +1,12 @@
+import Expo from 'expo';
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import firebase from 'firebase';
-import { Spinner } from '@shoutem/ui';
 import { TabNavigator } from 'react-navigation';
-import ExploreTab from './client/containers/ExploreTab';
-import InboxTab from './client/containers/InboxTab';
-import ProfileTab from './client/containers/ProfileTab';
 import SignUp from './client/components/SignUp';
-import { Font } from 'expo';
-import FontAwesome, { Icons } from 'react-native-fontawesome';
+// import ExploreTab from './client/containers/ExploreTab';
+// import InboxTab from './client/containers/InboxTab';
+// import ProfileTab from './client/containers/ProfileTab';
 
 export default class App extends Component {
 
@@ -29,12 +27,13 @@ export default class App extends Component {
 		});
 	}
 
-	// componentDidMount() {
-	// 	Font.loadAsync({
-	// // 		'Rubik-Regular': require('./node_modules/@shoutem/ui/fonts/Rubik-Regular.ttf'),
-	// 		'FontAwesome': require('./node_modules/react-native-fontawesome'),
-	// 	});
-	// }
+	async componentWillMount() {
+		await Expo.Font.loadAsync({
+		  'Roboto': require('native-base/Fonts/Roboto.ttf'),
+		  'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
+		  'Ionicons': require('@expo/vector-icons/fonts/Ionicons.ttf'),
+		});
+	}
 
 	checkSignIn() {
 		switch (this.state.signIn) {
@@ -47,18 +46,18 @@ export default class App extends Component {
 		}
 	}
 	render() {
-		const MainNavigator = TabNavigator ({
-			ExploreScreen: { screen: ExploreTab },
-			InboxScreen: { screen: InboxTab },
-			ProfileScreen: { screen: ProfileTab },
-		}, {
-			navigationOptions: {
+		// const MainNavigator = TabNavigator ({
+		// 	ExploreScreen: { screen: ExploreTab },
+		// 	InboxScreen: { screen: InboxTab },
+		// 	ProfileScreen: { screen: ProfileTab },
+		// }, {
+		// 	navigationOptions: {
 	
-			}
-		});
+		// 	}
+		// });
 		return (
-			<MainNavigator/>
-			// <SignUp />
+			// <MainNavigator/>
+			<SignUp />
 		);
 	}
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import firebase from 'firebase';
-import { Button, Row, Spinner, TextInput } from '@shoutem/ui'
+import { Container, Header, Content, Form, Item, Input, Label } from 'native-base';
 
 export default class SignUp extends Component {
   state = {
@@ -13,12 +13,6 @@ export default class SignUp extends Component {
   onSignUp() {
     const { email, password } = this.state;
     
-    const re = '\.edu$';
-    if (!re.test(email)) {
-      this.setState({ error: 'Please use a valid .edu email.' });
-      return;
-    }
-
     this.setState({
       error: '',
       loading: true
@@ -40,7 +34,7 @@ export default class SignUp extends Component {
     );
   }
 
-  onLoginSuccess() {
+  onSignUpSuccess() {
     this.setState({
       email: '',
       password: '',
@@ -49,37 +43,23 @@ export default class SignUp extends Component {
     });
   }
 
-  renderSignUpButton() {
-    if (this.state.loading) {
-      return <Spinner/>;
-    }
-
-    return (
-      <Button onPress={this.onSignUp.bind(this)}>Sign up</Button>
-    );
-  }
-
   render() {
     return (
-      <View style={styles.container}>
-        <Row>
-          <Text>Email</Text>
-          <TextInput
-            placeholder={'user@example.com'}
-            onChangeText={email => this.setState({ email })}
-          />
-        </Row>
-        <Row>
-          <Text>Email</Text>
-          <TextInput
-            placeholder={'user@example.com'}
-            onChangeText={password => this.setState({ password })}
-          />
-        </Row>
-        <Row>
-          {this.renderSignUpButton()}
-        </Row>
-      </View>
+      <Container>
+      <Header />
+      <Content>
+        <Form>
+          <Item inlineLabel>
+            <Label>Username</Label>
+            <Input />
+          </Item>
+          <Item inlineLabel last>
+            <Label>Password</Label>
+            <Input />
+          </Item>
+        </Form>
+      </Content>
+    </Container>
     );
   }
 }
