@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Swipe from '../components/Swipe';
+import Switcher from '../components/Switcher';
 export default class App extends Component {
   render() {
     return (
-      <Swipe />
+        <Switcher />
     );
   }
 }
