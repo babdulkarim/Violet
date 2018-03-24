@@ -3,6 +3,9 @@ import { StyleSheet, View } from 'react-native';
 import firebase from 'firebase';
 import { Spinner } from '@shoutem/ui';
 import { TabNavigator } from 'react-navigation';
+import ExploreTab from './client/containers/ExploreTab.js';
+import InboxTab from './client/containers/InboxTab.js';
+import ProfileTab from './client/containers/ProfileTab.js';
 
 export default class App extends Component {
 
