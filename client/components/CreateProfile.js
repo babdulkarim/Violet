@@ -57,18 +57,19 @@ export default class CreateProfile extends Component {
     });
 
     const { name, year, birthday, motto, bio } = this.state;
-    const { email } = this.props;
+    const { email, dbKey } = this.props;
+    var user = firebase.auth().currentUser;
+    var uid = user.uid;
     var ref = firebase.database().ref();
-    var user = ref.child('users');
-    user.set({
-      email: email,
-      profileCreated: true,
+    var users = ref.child('users/' + uid);
+    users.update({
       name: name,
       year: year,
       birthday: birthday,
       motto: motto,
-      bio: bio,
+      bio: bio
     });
+    
     this.props.onCreate();
   }
 
