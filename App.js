@@ -15,16 +15,24 @@ export default class App extends Component {
 			'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
 			'Ionicons': require('@expo/vector-icons/fonts/Ionicons.ttf'),
 		  });
-
-		firebase.initializeApp({
+		// firebase.initializeApp({
+		// 	apiKey: "AIzaSyD55I9qJm1_R8FzX_GZLmJuDa2byo1scBo",
+		// 	authDomain: "violet-5f0ae.firebaseapp.com",
+		// 	databaseURL: "https://violet-5f0ae.firebaseio.com",
+		// 	projectId: "violet-5f0ae",
+		// 	storageBucket: "",
+		// 	messagingSenderId: "779742191118"
+		//   });
+		const firebaseConfig = {
 			apiKey: "AIzaSyD55I9qJm1_R8FzX_GZLmJuDa2byo1scBo",
 			authDomain: "violet-5f0ae.firebaseapp.com",
 			databaseURL: "https://violet-5f0ae.firebaseio.com",
 			projectId: "violet-5f0ae",
 			storageBucket: "",
 			messagingSenderId: "779742191118"
-		  });
-
+		};
+		const firebaseApp = firebase.initializeApp(firebaseConfig);
+		
 		firebase.auth().onAuthStateChanged((user) => {
 			if (user) {
 				this.setState({ signIn: true });
