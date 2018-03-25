@@ -74,11 +74,9 @@ export default class SignUp extends Component {
 
   writeUserData() {
     const { email, status } = this.state;
-    var ref = firebase.database().ref();
-    var user = ref.child('users');
-    user.push({
-      email: email,
-      status: status,
+    console.log(email);
+    var ref = firebase.database().ref('users');
+    ref.child(email).set({
       profileCreated: false
     });
 

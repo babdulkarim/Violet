@@ -6,6 +6,7 @@ import Navigation from './client/containers/Navigation'
 import SignUp from './client/components/SignUp';
 import CreateProfile from './client/components/CreateProfile'
 import { Container, Spinner } from 'native-base';
+import Profile from './client/components/Profile';
 
 export default class App extends Component {
 	state = { signIn: null, profileCreated: null, userEmail: '' };
@@ -29,6 +30,7 @@ export default class App extends Component {
 		
 		firebase.auth().onAuthStateChanged((user) => {
 			if (user) {
+				console.log(user.uid);
 				this.setState({ signIn: true, userEmail: user.email});
 			} else {
 				this.setState({ signIn: false, profileCreated: false })
