@@ -8,6 +8,7 @@ import ExploreTab from './client/containers/ExploreTab';
 import InboxTab from './client/containers/InboxTab';
 import ProfileTab from './client/containers/ProfileTab';
 import { MaterialCommunityIcons, FontAwesome } from '@expo/vector-icons';
+import { Spinner } from 'native-base';
 
 export default class App extends Component {
 
@@ -94,9 +95,10 @@ export default class App extends Component {
 			}
 		});
 		return (
-			<View>
-				{this.checkSignIn()}
-			</View>
+			// <View>
+			// 	{this.checkSignIn()}
+			// </View>
+			<MainNavigator />
 			// <SignUp />
 		);
 	}
