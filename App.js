@@ -51,10 +51,11 @@ export default class App extends Component {
 			ExploreScreen: { 
 				screen: ExploreTab,
 				navigationOptions: {
-					tabBarIcon: ({ }) => (
+					tabBarIcon: ({ tintColor }) => (
 						<MaterialCommunityIcons 
 						name="gender-female"
 						size={25}
+                    	color={tintColor}
 						/>
 					),
 				} 
@@ -63,10 +64,11 @@ export default class App extends Component {
 				screen: InboxTab,
 				navigationOptions: {
 					header:null,
-					tabBarIcon: ({ }) => (
+					tabBarIcon: ({ tintColor }) => (
 						<MaterialCommunityIcons 
 						name="message-text"
 						size={25}
+                    	color={tintColor}
 						/>
 					),
 				}
@@ -74,10 +76,11 @@ export default class App extends Component {
 			ProfileScreen: {
 				 screen: ProfileTab,
 				 navigationOptions: {
-					tabBarIcon: ({ }) => (
+					tabBarIcon: ({ tintColor }) => (
 						<FontAwesome 
 						name="user"
 						size={25}
+                    	color={tintColor}
 						/>
 					),
 				}, 
@@ -86,6 +89,8 @@ export default class App extends Component {
 			tabBarOptions: {
 				showLabel: false,
 				showIcon: true,
+				inactiveTintColor: '#3c0035',
+				activeTintColor: '#c293bc',
 			}
 		});
 		return (
