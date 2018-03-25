@@ -22,7 +22,7 @@ import InputScrollView from 'react-native-input-scroll-view';
 export default class CreateProfile extends Component {
   state = {
     name: '',
-    year: 'first',
+    year: 'First',
     major: '',
     motto: '',
     bio: '',
@@ -64,19 +64,19 @@ export default class CreateProfile extends Component {
   }
 
   setFirst() {
-    this.setState({ year: 'first' });
+    this.setState({ year: 'First' });
   }
 
   setSecond() {
-    this.setState({ year: 'second' });
+    this.setState({ year: 'Second' });
   }
 
   setThird() {
-    this.setState({ year: 'third' });
+    this.setState({ year: 'Third' });
   }
 
   setFourth() {
-    this.setState({ year: 'fourth' });
+    this.setState({ year: 'Fourth' });
   }
 
   render() {

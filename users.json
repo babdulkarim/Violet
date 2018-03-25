@@ -1,13 +1,13 @@
 {
   "users" : {
     "kAsFvRnMg9fiRWL0jglB9CZCIeM2" : {
-      "avatar" : "https://d3iw72m71ie81c.cloudfront.net/female-94.jpg",
-      "bio" : "Testing testing 1 2 3. Is this thing on? This is a test post, please do not reply. Thank you",
-      "createdProfile" : false,
+      "avatar" : "https://d3iw72m71ie81c.cloudfront.net/male-11.jpg",
+      "bio" : "Testing testing 1 2 3. Is this thing on? This is a test post, please do not reply. Thank you.",
+      "createdProfile" : true,
       "email" : "zane@virginia.edu",
-      "hero" : "http://kb4images.com/images/image-cool/36382458-image-cool.jpg",
+      "hero" : "https://images.pexels.com/photos/312105/pexels-photo-312105.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350",
       "major" : "Computer Science",
-      "motto" : "Yes you do",
+      "motto" : "Test motto",
       "name" : "Zane Bilous",
       "profileCreated" : true,
       "role" : "big",

@@ -28,14 +28,14 @@ export default class App extends Component {
 			messagingSenderId: "779742191118"
 		};
 		const firebaseApp = firebase.initializeApp(firebaseConfig);
-		
+
 		firebase.auth().onAuthStateChanged((user) => {
 			if (user) {
 				firebase.database().ref('users/' + user.uid).once('value').then((snap) => {
 					this.setState({ signIn: true, profileCreated: snap.val().profileCreated } )
 				});
 			} else {
-				this.setState({ signIn: false, profileCreated: false })
+				this.setState({ signIn: false })
 			}
 		});
 	}
@@ -45,11 +45,6 @@ export default class App extends Component {
 	}
 
 	checkSignIn() {
-		if (this.state.profileCreated == 'wait') {
-			return (
-					<Spinner style={{alignSelf: 'center', flex: 1}} color="grey"/> 
-			);
-		}
 		switch (this.state.signIn) {
 			case true:
 				if (!this.state.profileCreated) {
@@ -67,7 +62,6 @@ export default class App extends Component {
 
 	render() {		
 		return (
-			// <Profile email="zane@virginia.edu"/>
 			<Container>
 				{this.checkSignIn()}
 			</Container>
