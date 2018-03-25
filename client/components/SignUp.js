@@ -18,17 +18,6 @@ import {
 export default class SignUp extends Component {
   state = { 'email': '', 'password': '', 'loading': false };
 
-  componentWillMount() {
-    firebase.initializeApp({
-      apiKey: "AIzaSyD55I9qJm1_R8FzX_GZLmJuDa2byo1scBo",
-      authDomain: "violet-5f0ae.firebaseapp.com",
-      databaseURL: "https://violet-5f0ae.firebaseio.com",
-      projectId: "violet-5f0ae",
-      storageBucket: "",
-      messagingSenderId: "779742191118"
-    });
-  }
-
   // validate email then password
   validate() {
     const { email, password } = this.state;
@@ -83,10 +72,19 @@ export default class SignUp extends Component {
   }
 
   writeUserData() {
-    firebase.database().ref('users/' + email).set({
-      email: this.state.email,
+    const { email } = this.state;
+    var ref = firebase.database().ref();
+    var user = ref.child('users');
+    user.push({
+      email: email,
       profileCreated: false
     });
+
+    this.setState({
+      email: '',
+      password: '',
+      loading:''
+    })
   }
 
   renderButton() {
@@ -171,9 +169,6 @@ const styles = StyleSheet.create({
 
   errorText: {
     color: 'red',
-    // textShadowColor: '#000',
-    // textShadowOffset: { width: 0, height: 2 },
-    // textShadowOpacity: 0.2
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
