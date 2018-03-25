@@ -15,13 +15,13 @@ export default class App extends Component {
 
 	componentWillMount() {
 		firebase.initializeApp({
-			apiKey: "AIzaSyD4-vcDLj2ZHEkxGsOdxSDhmU9Z8dlgXNI",
-			authDomain: "my-awesome-project-7e2a1.firebaseapp.com",
-			databaseURL: "https://my-awesome-project-7e2a1.firebaseio.com",
-			projectId: "my-awesome-project-7e2a1",
-			storageBucket: "my-awesome-project-7e2a1.appspot.com",
-			messagingSenderId: "1047716563592"
-		});
+			apiKey: "AIzaSyD55I9qJm1_R8FzX_GZLmJuDa2byo1scBo",
+			authDomain: "violet-5f0ae.firebaseapp.com",
+			databaseURL: "https://violet-5f0ae.firebaseio.com",
+			projectId: "violet-5f0ae",
+			storageBucket: "",
+			messagingSenderId: "779742191118"
+		  });
 
 		firebase.auth().onAuthStateChanged((user) => {
 			(user) ? this.setState({signIn: true}) : this.setState({signIn: false});
@@ -39,7 +39,7 @@ export default class App extends Component {
 	checkSignIn() {
 		switch (this.state.signIn) {
 			case true:
-				return <Explore/>
+				return <MainNavigator/>
 			case false:
 				return <SignUp/>
 			default:
@@ -94,7 +94,9 @@ export default class App extends Component {
 			}
 		});
 		return (
-			<MainNavigator/>
+			<View>
+				{this.checkSignIn()}
+			</View>
 			// <SignUp />
 		);
 	}

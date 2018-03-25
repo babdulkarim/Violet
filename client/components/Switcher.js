@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Header, Left, Body, Right, Button, Icon, Segment, Content, Text } from 'native-base';
-import Swipe from './Swipe';
+
 export default class Switcher extends Component {
   render() {
     return (
