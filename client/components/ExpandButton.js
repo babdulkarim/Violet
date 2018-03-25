@@ -6,8 +6,11 @@ export default class ExpandButton extends Component {
   render() {
     return (
       <View>
-        <Button iconTop light>
-            <Icon name='arrow-top' />
+        <Button iconTop light style={{backgroundColor: '#fff'}}>
+            <Icon 
+            name='arrow-up'
+            style={{color: '#8d3482'}}
+            />
         </Button>
       </View>
     );
