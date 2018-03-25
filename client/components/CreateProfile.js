@@ -15,7 +15,6 @@ import {
   Spinner,
   Segment,
   Right,
-  Center
 } from 'native-base';
 import InputScrollView from 'react-native-input-scroll-view';
 
@@ -104,10 +103,10 @@ export default class CreateProfile extends Component {
             <Item inlineLabel last>
               <Label>Year</Label>
               <Segment style={{backgroundColor: '#fff'}}>
-                <Button style={styles.segmentButton} first active={this.state.year == 'first'} onPress={this.setFirst.bind(this)}><Text>1st</Text></Button>
-                <Button style={styles.segmentButton} active={this.state.year == 'second'} onPress={this.setSecond.bind(this)}><Text>2nd</Text></Button>
-                <Button style={styles.segmentButton} active={this.state.year == 'third'} onPress={this.setThird.bind(this)}><Text>3rd</Text></Button>
-                <Button style={styles.segmentButton} last active={this.state.year == 'fourth'} onPress={this.setFourth.bind(this)}><Text>4th</Text></Button>
+                <Button style={styles.segmentButton} first active={this.state.year == 'First'} onPress={this.setFirst.bind(this)}><Text>1st</Text></Button>
+                <Button style={styles.segmentButton} active={this.state.year == 'Second'} onPress={this.setSecond.bind(this)}><Text>2nd</Text></Button>
+                <Button style={styles.segmentButton} active={this.state.year == 'Third'} onPress={this.setThird.bind(this)}><Text>3rd</Text></Button>
+                <Button style={styles.segmentButton} last active={this.state.year == 'Fourth'} onPress={this.setFourth.bind(this)}><Text>4th</Text></Button>
               </Segment>
             </Item>
             <Item inlineLabel>
