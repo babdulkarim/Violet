@@ -2,20 +2,7 @@ import React, { Component } from 'react';
 import { Image } from 'react-native';
 import { Container, Header, View, DeckSwiper, Card, CardItem, Thumbnail, Text, Left, Body, Icon } from 'native-base';
 import firebase from 'firebase';
-
-const cards = [
-  {
-    text: 'Card One',
-    name: 'One',
-    image: require('../../assets/images/signUpHero.jpg'),
-  },
-  {
-    text: 'Card Two',
-    name: 'Two',
-    image: require('../../assets/images/signUpHero.jpg'),
-  },
-  
-];
+import ExpandButton from './ExpandButton';
 export default class Swipe extends Component {
   constructor(props) {
     super(props);
@@ -62,6 +49,7 @@ export default class Swipe extends Component {
                 <CardItem>
                   <Icon name="heart" style={{ color: '#ED4A6A' }} />
                   <Text>{item.email}</Text>
+                  <ExpandButton />
                 </CardItem>
               </Card>
             }
