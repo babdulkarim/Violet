@@ -17,7 +17,7 @@ import {
 } from 'native-base';
 
 export default class SignUp extends Component {
-  state = { 'email': '', 'password': '', 'status': 'little', 'loading': false };
+  state = { 'email': '', 'password': '', 'role': 'little', 'loading': false };
 
   // validate email then password
   validate() {
@@ -56,12 +56,21 @@ export default class SignUp extends Component {
     });
 
     firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(this.writeUserData.bind(this))
+      .then(this.onSignInSuccess.bind(this))
       .catch(() => {
         firebase.auth().createUserWithEmailAndPassword(email, password)
           .then(this.writeUserData.bind(this))
           .catch(this.onSignUpFail.bind(this));
       })
+  }
+
+  onSignInSuccess() {
+    this.setState({
+      email: '',
+      password: '',
+      role: 'little',
+      loading: false
+    })
   }
 
   onSignUpFail() {
@@ -73,13 +82,13 @@ export default class SignUp extends Component {
   }
 
   writeUserData() {
-    const { email, status } = this.state;
+    const { email, role } = this.state;
     var user = firebase.auth().currentUser;
     var uid  = user.uid;
     var ref = firebase.database().ref();
     ref.child('users/' + uid).set({
       email: email,
-      status: status,
+      role: role,
       createdProfile: false
     });
 
@@ -106,11 +115,11 @@ export default class SignUp extends Component {
   }
 
   setBig() {
-    this.setState({ status: 'big' });
+    this.setState({ role: 'big' });
   }
 
   setLittle() {
-    this.setState({ status: 'little' });
+    this.setState({ role: 'little' });
   }
 
   render() {
@@ -146,8 +155,8 @@ export default class SignUp extends Component {
             <Item style={{alignItems: 'center', justifyContent: 'center'}}>
               <Label>I am a: </Label>
               <Segment style={{backgroundColor: '#fff'}}>
-                <Button first active={this.state.status == 'big'} onPress={this.setBig.bind(this)}><Text>Big</Text></Button>
-                <Button last active={this.state.status == 'little'} onPress={this.setLittle.bind(this)}><Text>Little</Text></Button>
+                <Button first active={this.state.role == 'big'} onPress={this.setBig.bind(this)}><Text>Big</Text></Button>
+                <Button last active={this.state.role == 'little'} onPress={this.setLittle.bind(this)}><Text>Little</Text></Button>
               </Segment>
             </Item>
             <View style={{alignItems: 'center', justifyContent: 'center'}}>

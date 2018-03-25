@@ -10,7 +10,7 @@
       "motto" : "Yes you do",
       "name" : "Zane Bilous",
       "profileCreated" : true,
-      "status" : "big",
+      "role" : "big",
       "year" : "Third"
     },
     "user1" : {
@@ -21,7 +21,7 @@
       "major" : "Commerce",
       "motto" : "Just do it",
       "name" : "Serena Jackson",
-      "status" : "big",
+      "role" : "big",
       "year" : "Third"
     },
     "user2" : {
@@ -32,7 +32,7 @@
       "major" : "Systems Engeineering",
       "motto" : "My momma always said life is like a box of chocolates",
       "name" : "Sarah Ming",
-      "status" : "big",
+      "role" : "big",
       "year" : "Second"
     },
     "user3" : {
@@ -43,7 +43,7 @@
       "major" : "Econ",
       "motto" : "Horses are the best",
       "name" : "Katie Smith",
-      "status" : "big",
+      "role" : "big",
       "year" : "Fourth"
     },
     "user4" : {
@@ -54,7 +54,7 @@
       "major" : "Biology",
       "motto" : "Just do it",
       "name" : "Tamika Jones",
-      "status" : "big",
+      "role" : "big",
       "year" : "Second"
     },
     "user5" : {
@@ -65,7 +65,7 @@
       "major" : "Chemical Engineering",
       "motto" : "Just do it",
       "name" : "Tiffany David",
-      "status" : "big",
+      "role" : "big",
       "year" : "Third"
     }
   }

@@ -12,7 +12,7 @@ import {
 } from 'native-base';
 
 const SwipeCard = (props) => {
-  const { name, year, avatar, hero, major, bio, motto, status } = props;
+  const { name, year, avatar, hero, major, bio, motto, role } = props;
 
   return (
     <Card style={styles.cardContainer}>

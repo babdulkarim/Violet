@@ -64,7 +64,7 @@ export default class ExploreTab extends Component {
                 hero={item.hero}
                 bio={item.bio}
                 motto={item.motto}
-                status={item.status}
+                role={item.role}
               />
             }
           />

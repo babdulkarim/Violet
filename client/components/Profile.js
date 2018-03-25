@@ -23,7 +23,7 @@ export default class Profile extends Component {
   state = {
     email: '',
     name: '',
-    status: '',
+    role: '',
     year: 'first',
     major: '',
     motto: '',
@@ -39,7 +39,7 @@ export default class Profile extends Component {
       this.setState({
         email: snap.val()[user.uid]['email'],
         name: snap.val()[user.uid]['name'],
-        status: snap.val()[user.uid]['status'],
+        role: snap.val()[user.uid]['role'],
         year: snap.val()[user.uid]['year'],
         major: snap.val()[user.uid]['major'],
         motto: snap.val()[user.uid]['motto'],
@@ -51,7 +51,7 @@ export default class Profile extends Component {
   }
 
   render() {
-    const { email, name, status, year, major, motto, bio, avatar, hero} = this.state;
+    const { email, name, role, year, major, motto, bio, avatar, hero} = this.state;
 
     return (
       <Content>
