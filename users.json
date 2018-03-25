@@ -1,0 +1,72 @@
+{
+  "users" : {
+    "kAsFvRnMg9fiRWL0jglB9CZCIeM2" : {
+      "avatar" : "https://d3iw72m71ie81c.cloudfront.net/female-94.jpg",
+      "bio" : "Testing testing 1 2 3. Is this thing on? This is a test post, please do not reply. Thank you",
+      "createdProfile" : false,
+      "email" : "zane@virginia.edu",
+      "hero" : "http://kb4images.com/images/image-cool/36382458-image-cool.jpg",
+      "major" : "Computer Science",
+      "motto" : "Yes you do",
+      "name" : "Zane Bilous",
+      "profileCreated" : true,
+      "status" : "big",
+      "year" : "Third"
+    },
+    "user1" : {
+      "avatar" : "https://d3iw72m71ie81c.cloudfront.net/female-7.jpg",
+      "bio" : "I like tennis and drinking. You can catch me outside at any time.",
+      "email" : "sj4ka@virginia.edu",
+      "hero" : "https://images.pexels.com/photos/160933/girl-rabbit-friendship-love-160933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "major" : "Commerce",
+      "motto" : "Just do it",
+      "name" : "Serena Jackson",
+      "status" : "big",
+      "year" : "Third"
+    },
+    "user2" : {
+      "avatar" : "https://d3iw72m71ie81c.cloudfront.net/female-51.jpg",
+      "bio" : "I love to snowboard and eat snow.",
+      "email" : "sj4ka@virginia.edu",
+      "hero" : "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "major" : "Systems Engeineering",
+      "motto" : "My momma always said life is like a box of chocolates",
+      "name" : "Sarah Ming",
+      "status" : "big",
+      "year" : "Second"
+    },
+    "user3" : {
+      "avatar" : "https://d3iw72m71ie81c.cloudfront.net/female-8.jpg",
+      "bio" : "Horses are my life. If anything ever happened to my horse I would die.",
+      "email" : "sj4ka@virginia.edu",
+      "hero" : "https://images.pexels.com/photos/6468/animal-brown-horse.jpg?auto=compress&cs=tinysrgb&dpr=2&h=350",
+      "major" : "Econ",
+      "motto" : "Horses are the best",
+      "name" : "Katie Smith",
+      "status" : "big",
+      "year" : "Fourth"
+    },
+    "user4" : {
+      "avatar" : "https://d3iw72m71ie81c.cloudfront.net/female-34.jpg",
+      "bio" : "Internet practitioner. Total travel enthusiast. Lifelong entrepreneur. Alcohol guru. Writer. Proud zombie maven.",
+      "email" : "sj4ka@virginia.edu",
+      "hero" : "https://images.pexels.com/photos/256737/pexels-photo-256737.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350",
+      "major" : "Biology",
+      "motto" : "Just do it",
+      "name" : "Tamika Jones",
+      "status" : "big",
+      "year" : "Second"
+    },
+    "user5" : {
+      "avatar" : "https://d3iw72m71ie81c.cloudfront.net/female-10.jpg",
+      "bio" : "Friend of animals everywhere. Alcohol fan. Infuriatingly humble analyst. Bacon enthusiast.",
+      "email" : "sj4ka@virginia.edu",
+      "hero" : "https://images.pexels.com/photos/160933/girl-rabbit-friendship-love-160933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "major" : "Chemical Engineering",
+      "motto" : "Just do it",
+      "name" : "Tiffany David",
+      "status" : "big",
+      "year" : "Third"
+    }
+  }
+}

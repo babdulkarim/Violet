@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, ImageBackground, StyleSheet, View } from 'react-native';
+import { Keyboard, Image, ImageBackground, StyleSheet, View } from 'react-native';
 import firebase from 'firebase';
 import { 
   Container, 
@@ -23,41 +23,30 @@ export default class CreateProfile extends Component {
   state = {
     name: '',
     year: 'first',
-    birthday: '',
+    major: '',
     motto: '',
     bio: '',
     error: '',
   };
 
-  // validate name is nonempty and birthday is right
   validate() {
-    const { name, year, birthday, motto, bio, } = this.state;
-    var re = /[0-9]{8}/;
-    console.log(name);
-    if (name == '') {
-      this.setState({ error: 'Please enter a name.'});
-      return false;
-    }
-    if (!re.test(birthday)) {
-      this.setState({ error: 'Please enter a valid birthday (MMDDYYYY).'});
-      return false;
-    }
+    const { name } = this.state;
+    
     return true;
   }
 
   onCreateProfile() {
-    this.validate.bind(this);
-    var validated = this.validate();
-    if (!validated) {
+    Keyboard.dismiss;
+    const { name, year, major, motto, bio } = this.state;
+    if (name == '') {
+      this.setState({ error: 'Please enter a name.'});
       return;
     }
-
+    
     this.setState({
       error: '',
     });
 
-    const { name, year, birthday, motto, bio } = this.state;
-    const { email, dbKey } = this.props;
     var user = firebase.auth().currentUser;
     var uid = user.uid;
     var ref = firebase.database().ref();
@@ -65,7 +54,7 @@ export default class CreateProfile extends Component {
     users.update({
       name: name,
       year: year,
-      birthday: birthday,
+      major: major,
       motto: motto,
       bio: bio,
       profileCreated: true
@@ -122,12 +111,11 @@ export default class CreateProfile extends Component {
               </Segment>
             </Item>
             <Item inlineLabel>
-              <Label>Birthday</Label>
+              <Label>Major</Label>
               <Input 
               autoCapitalize="none"
-              keyboardType="numeric"
-              placeholder="MMDDYYYY"
-              onChangeText={birthday => this.setState({ birthday })}
+              placeholder="Biomedical Engineering"
+              onChangeText={major => this.setState({ major })}
               />
             </Item>
             <Item inlineLabel>

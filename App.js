@@ -8,8 +8,9 @@ import CreateProfile from './client/components/CreateProfile'
 import { Container, Spinner } from 'native-base';
 import Profile from './client/components/Profile';
 
+console.disableYellowBox = true;
 export default class App extends Component {
-	state = { signIn: null, profileCreated: null};
+	state = { signIn: null, profileCreated: 'wait'};
 
 	async componentWillMount() {
 		await Expo.Font.loadAsync({
@@ -44,9 +45,16 @@ export default class App extends Component {
 	}
 
 	checkSignIn() {
+		if (this.state.profileCreated == 'wait') {
+			return (
+				<View style={{alignItems: 'center', justifyContent: 'center'}}>
+					<Spinner color="grey"/> 
+				</View>
+			);
+		}
 		switch (this.state.signIn) {
 			case true:
-				if (this.state.profileCreated === false) {
+				if (!this.state.profileCreated) {
 					return <CreateProfile onCreate={this.setProfileCreated.bind(this)} />
 				}
 				return <Navigation/>
