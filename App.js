@@ -31,8 +31,9 @@ export default class App extends Component {
 
 		firebase.auth().onAuthStateChanged((user) => {
 			if (user) {
+				this.setState({ signIn: true, });
 				firebase.database().ref('users/' + user.uid).once('value').then((snap) => {
-					this.setState({ signIn: true, profileCreated: snap.val().profileCreated } )
+					this.setState({ profileCreated: snap.val().profileCreated } )
 				});
 			} else {
 				this.setState({ signIn: false })
