@@ -47,9 +47,7 @@ export default class App extends Component {
 	checkSignIn() {
 		if (this.state.profileCreated == 'wait') {
 			return (
-				<View style={{alignItems: 'center', justifyContent: 'center'}}>
-					<Spinner color="grey"/> 
-				</View>
+					<Spinner style={{alignSelf: 'center', flex: 1}} color="grey"/> 
 			);
 		}
 		switch (this.state.signIn) {
@@ -62,9 +60,7 @@ export default class App extends Component {
 				return <SignUp/>
 			default:
 				return (
-					<View style={{alignItems: 'center', justifyContent: 'center'}}>
-						<Spinner color="grey"/> 
-					</View>
+						<Spinner style={{alignSelf: 'center', flex: 1}} color="grey"/> 
 				);
 		}
 	}

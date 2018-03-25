@@ -100,7 +100,7 @@ export default class SignUp extends Component {
         block
         info
         onPress={this.onSignUp.bind(this)}>
-          <Text>Create Account</Text>
+          <Text>Sign In</Text>
       </Button>
     );
   }
@@ -117,7 +117,7 @@ export default class SignUp extends Component {
     return (
       <Container>
         <Header style={styles.header}>
-          <Title>Sign Up</Title>
+          <Title>Sign Up / Log In</Title>
         </Header>
         <Content>
           <View style={styles.imageContainer}>
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
   },
 
   buttonContainer: {
-    margin: 5
+    margin: 5,
   },
 
   errorText: {
