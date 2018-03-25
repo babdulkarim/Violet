@@ -5,7 +5,7 @@ import Switcher from '../components/Switcher';
 export default class App extends Component {
   render() {
     return (
-        <Switcher />
+          <Switcher />
     );
   }
 }

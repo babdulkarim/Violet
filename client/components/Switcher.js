@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Container, Header, Left, Body, Right, Button, Icon, Segment, Content, Text } from 'native-base';
-
-​export default class Switcher extends Component {
+import Swipe from './Swipe';
+export default class Switcher extends Component {
   render() {
     return (
       <Container>
         <Header>
           <Left>
-            <Button transparent>
+            {/* <Button transparent>
               <Icon name="arrow-back" />
-            </Button>
+            </Button> */}
           </Left>
           <Body>
             <Segment>
@@ -18,9 +18,9 @@ import { Container, Header, Left, Body, Right, Button, Icon, Segment, Content, T
             </Segment>
           </Body>
           <Right>
-            <Button transparent>
+            {/* <Button transparent>
               <Icon name="search" />
-            </Button>
+            </Button> */}
           </Right>
         </Header>
         <Content padder>

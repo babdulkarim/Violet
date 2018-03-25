@@ -7,6 +7,7 @@ import SignUp from './client/components/SignUp';
 import ExploreTab from './client/containers/ExploreTab';
 import InboxTab from './client/containers/InboxTab';
 import ProfileTab from './client/containers/ProfileTab';
+import { MaterialCommunityIcons, FontAwesome } from '@expo/vector-icons';
 
 export default class App extends Component {
 
@@ -47,12 +48,44 @@ export default class App extends Component {
 	}
 	render() {
 		const MainNavigator = TabNavigator ({
-			ExploreScreen: { screen: ExploreTab },
-			InboxScreen: { screen: InboxTab },
-			ProfileScreen: { screen: ProfileTab },
+			ExploreScreen: { 
+				screen: ExploreTab,
+				navigationOptions: {
+					tabBarIcon: ({ }) => (
+						<MaterialCommunityIcons 
+						name="gender-female"
+						size={25}
+						/>
+					),
+				} 
+			},
+			InboxScreen: { 
+				screen: InboxTab,
+				navigationOptions: {
+					header:null,
+					tabBarIcon: ({ }) => (
+						<MaterialCommunityIcons 
+						name="message-text"
+						size={25}
+						/>
+					),
+				}
+			},
+			ProfileScreen: {
+				 screen: ProfileTab,
+				 navigationOptions: {
+					tabBarIcon: ({ }) => (
+						<FontAwesome 
+						name="user"
+						size={25}
+						/>
+					),
+				}, 
+			},
 		}, {
-			navigationOptions: {
-	
+			tabBarOptions: {
+				showLabel: false,
+				showIcon: true,
 			}
 		});
 		return (
