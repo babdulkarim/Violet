@@ -9,7 +9,7 @@ import { Container, Spinner } from 'native-base';
 import Profile from './client/components/Profile';
 
 export default class App extends Component {
-	state = { signIn: null, profileCreated: null, userEmail: '' };
+	state = { signIn: null, profileCreated: null};
 
 	async componentWillMount() {
 		await Expo.Font.loadAsync({
@@ -30,8 +30,9 @@ export default class App extends Component {
 		
 		firebase.auth().onAuthStateChanged((user) => {
 			if (user) {
-				console.log(user.uid);
-				this.setState({ signIn: true, userEmail: user.email});
+				firebase.database().ref('users/' + user.uid).once('value').then((snap) => {
+					this.setState({ signIn: true, profileCreated: snap.val().profileCreated } )
+				});
 			} else {
 				this.setState({ signIn: false, profileCreated: false })
 			}
@@ -45,8 +46,8 @@ export default class App extends Component {
 	checkSignIn() {
 		switch (this.state.signIn) {
 			case true:
-				if (!this.state.profileCreated) {
-					return <CreateProfile onCreate={this.setProfileCreated.bind(this)} email={this.state.userEmail} />
+				if (this.state.profileCreated === false) {
+					return <CreateProfile onCreate={this.setProfileCreated.bind(this)} />
 				}
 				return <Navigation/>
 			case false:
@@ -62,6 +63,7 @@ export default class App extends Component {
 
 	render() {		
 		return (
+			// <Profile email="zane@virginia.edu"/>
 			<Container>
 				{this.checkSignIn()}
 			</Container>

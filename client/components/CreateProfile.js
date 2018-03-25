@@ -67,9 +67,10 @@ export default class CreateProfile extends Component {
       year: year,
       birthday: birthday,
       motto: motto,
-      bio: bio
+      bio: bio,
+      profileCreated: true
     });
-    
+
     this.props.onCreate();
   }
 

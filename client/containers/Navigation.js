@@ -49,8 +49,8 @@ export default TabNavigator(
     tabBarOptions: {
         showLabel: false,
         showIcon: true,
-        inactiveTintColor: '#3c0035',
-        activeTintColor: '#c293bc',
+        inactiveTintColor: '#c293bc',
+        activeTintColor: '#3c0035',
     }
   }
 );
