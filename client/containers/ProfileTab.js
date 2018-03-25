@@ -11,37 +11,38 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
       <Header />
-        <Content>
+        {/* <Content>
           <Thumbnail large square source={{uri: 'http://static3.uk.businessinsider.com/image/54c64fa2dd0895c51d8b4567/report-the-nfl-has-video-of-a-person-of-interest-taking-the-patriots-game-balls-into-another-room-before-afc-title-game.jpg'}} />
-        </Content>
+        </Content> */}
+        <Image style={{width: 150, height: 150}} source={{uri: 'http://static3.uk.businessinsider.com/image/54c64fa2dd0895c51d8b4567/report-the-nfl-has-video-of-a-person-of-interest-taking-the-patriots-game-balls-into-another-room-before-afc-title-game.jpg'}} />
 
         <Item inlineLabel last>
-            <Label>Enter Name</Label>
+            <Label style = {{ color: "purple" }}>Name:</Label>
             <Input />
           </Item>   
 
         <Item inlineLabel last>
-            <Label>Enter School</Label>
+            <Label style = {{ color: "purple" }}>School:</Label>
             <Input />
           </Item>
 
          <Item inlineLabel last>
-            <Label>Enter School Year</Label>
+            <Label style = {{ color: "purple" }}>School Year:</Label>
             <Input />
           </Item>
         
         <Item inlineLabel last>
-            <Label>Enter Big/Little Status</Label>
+            <Label style = {{ color: "purple" }}>Big/Little Status:</Label>
             <Input />
           </Item>
 
         <Item inlineLabel last>
-            <Label>Enter Bio</Label>
+            <Label style = {{ color: "purple" }}>Bio:</Label>
             <Input />
           </Item>
         
           <Item inlineLabel last>
-            <Label>Enter Interests/Goals/Intentions</Label>
+            <Label style = {{ color: "purple" }}>Interests/Goals/Intentions:</Label>
             <Input />
           </Item>
       </View>
