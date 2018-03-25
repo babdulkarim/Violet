@@ -12,11 +12,12 @@ import {
   Label,
   Button,
   Text,
-  Spinner
+  Spinner,
+  Segment
 } from 'native-base';
 
 export default class SignUp extends Component {
-  state = { 'email': '', 'password': '', 'loading': false };
+  state = { 'email': '', 'password': '', 'status': 'little', 'loading': false };
 
   // validate email then password
   validate() {
@@ -72,11 +73,12 @@ export default class SignUp extends Component {
   }
 
   writeUserData() {
-    const { email } = this.state;
+    const { email, status } = this.state;
     var ref = firebase.database().ref();
     var user = ref.child('users');
     user.push({
       email: email,
+      status: status,
       profileCreated: false
     });
 
@@ -100,6 +102,14 @@ export default class SignUp extends Component {
           <Text>Create Account</Text>
       </Button>
     );
+  }
+
+  setBig() {
+    this.setState({ status: 'big' });
+  }
+
+  setLittle() {
+    this.setState({ status: 'little' });
   }
 
   render() {
@@ -131,6 +141,13 @@ export default class SignUp extends Component {
                 secureTextEntry
                 onChangeText={password => this.setState({ password })}
               />
+            </Item>
+            <Item style={{alignItems: 'center', justifyContent: 'center'}}>
+              <Label>I am a: </Label>
+              <Segment style={{backgroundColor: '#fff'}}>
+                <Button first active={this.state.status == 'big'} onPress={this.setBig.bind(this)}><Text>Big</Text></Button>
+                <Button last active={this.state.status == 'little'} onPress={this.setLittle.bind(this)}><Text>Little</Text></Button>
+              </Segment>
             </Item>
             <View style={{alignItems: 'center', justifyContent: 'center'}}>
               <Text style={styles.errorText}>{this.state.error}</Text>
