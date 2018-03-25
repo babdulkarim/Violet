@@ -11,7 +11,11 @@ import {
   Item,
   Label,
   Input,
-  Icon
+  Left,
+  Icon,
+  List,
+  ListItem,
+  Body
 } from 'native-base';
 import firebase from 'firebase';
 
@@ -21,43 +25,57 @@ export default class Profile extends Component {
     name: '',
     status: '',
     year: 'first',
-    birthday: '',
+    major: '',
     motto: '',
     bio: '',
+    avatar: '',
+    hero: ''
   };
 
   componentWillMount() {
-    if (firebase.apps.length) {
-      const users = firebase.database().ref().child('users');
-      users.orderByChild('email').equalTo(this.props.email).once('value').then(snapshot => {
-        this.setState({
-          email: this.props.email,
-          name: snapshot.child('name').val(),
-          status: snapshot.child('status').val(),
-          year: snapshot.child('year').val(),
-          birthday: snapshot.child('birthday').val(),
-          motto: snapshot.child('motto').val(),
-          bio: snapshot.child('bio').val()
-        });
+    var user = firebase.auth().currentUser;
+    var resp = {};
+    firebase.database().ref().child('users').orderByKey().equalTo(user.uid).once('value').then(snap => {;
+      this.setState({
+        email: snap.val()[user.uid]['email'],
+        name: snap.val()[user.uid]['name'],
+        status: snap.val()[user.uid]['status'],
+        year: snap.val()[user.uid]['year'],
+        major: snap.val()[user.uid]['major'],
+        motto: snap.val()[user.uid]['motto'],
+        bio: snap.val()[user.uid]['bio'],
+        avatar: snap.val()[user.uid]['avatar'],
+        hero: snap.val()[user.uid]['hero']
       });
-    }
+    });
   }
 
   render() {
-    const { email, name, status, year, birthday, motto, bio } = this.state;
+    const { email, name, status, year, major, motto, bio, avatar, hero} = this.state;
 
     return (
-      <Container style={styles.container}>
-        <Header>
-          <Button iconLeft transparent>
-            <Icon name='arrow-back' />
-          </Button>
-          <Title>{name}'s Profile</Title>
-        </Header>
-        <Content>
-
-        </Content>
-      </Container>
+      <Content>
+        <List>
+          <ListItem avatar>
+            <Left>
+              <Thumbnail source={{uri: avatar}}/>
+            </Left>
+            <Body>
+              <Text>{name}</Text>
+              <Text>{year} Year</Text>
+              <Text>{major}</Text>
+              <Text>"{motto}"</Text>
+            </Body>
+          </ListItem>
+          <ListItem style={{height: 200}}>
+            <Image style={styles.imageContainer} source={{uri: hero}}/>
+          </ListItem>
+          <ListItem style={{flexDirection: 'column'}}>
+            <Text style={styles.bioText}>Bio</Text>
+            <Text>{bio}</Text>
+          </ListItem>
+        </List>
+      </Content>
     );
   }
 }
@@ -72,7 +90,22 @@ const styles = StyleSheet.create({
     flexDirection: 'column'
   },
 
-  avatar: {
+  imageContainer: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    marginBottom: 4,
+    width: '100%',
+    height: '100%'
+  },
+
+  bioText: {
+    fontWeight: 'bold',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    marginTop: -25,
+    fontSize: 18
 
   }
 });

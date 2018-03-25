@@ -1,53 +1,28 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, AppRegistry, TextInput, Image } from 'react-native';
 import { Container, Header, Content, Thumbnail, Title, Subtitle, Item, Label, Input } from 'native-base';
+import Profile from '../components/Profile.js';
 
 export default class ProfileTab extends Component {
   render() {
     return (
-      <View style={styles.container}>
-      <Header />
-        <Image style={{width: 150, height: 150}} source={{uri: 'http://static3.uk.businessinsider.com/image/54c64fa2dd0895c51d8b4567/report-the-nfl-has-video-of-a-person-of-interest-taking-the-patriots-game-balls-into-another-room-before-afc-title-game.jpg'}} />
-
-        <Item inlineLabel last>
-            <Label style = {{ color: "purple" }}>Name:</Label>
-            <Input />
-          </Item>   
-
-        <Item inlineLabel last>
-            <Label style = {{ color: "purple" }}>School:</Label>
-            <Input />
-          </Item>
-
-         <Item inlineLabel last>
-            <Label style = {{ color: "purple" }}>School Year:</Label>
-            <Input />
-          </Item>
-        
-        <Item inlineLabel last>
-            <Label style = {{ color: "purple" }}>Big/Little Status:</Label>
-            <Input />
-          </Item>
-
-        <Item inlineLabel last>
-            <Label style = {{ color: "purple" }}>Bio:</Label>
-            <Input />
-          </Item>
-        
-          <Item inlineLabel last>
-            <Label style = {{ color: "purple" }}>Interests/Goals/Intentions:</Label>
-            <Input />
-          </Item>
-      </View>
+      <Container>
+        <Header style={styles.header}>
+          <Title style={{color: "#68095C"}}>Profile</Title>
+        </Header>
+        <Content>
+          <Profile/>
+        </Content>
+      </Container>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
+  header: {
+    height: 80,
+    marginBottom: 10,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
 });

@@ -50,7 +50,7 @@ export default class InboxTab extends Component {
     return (
       <Container>
         <Header style={styles.header}>
-          <Title style={{color: "#68095C"}}>Violet</Title>
+          <Title style={{color: "#68095C"}}>Inbox</Title>
         </Header>
         <Content>
           <List dataArray={this.state.firebaseUsers}
