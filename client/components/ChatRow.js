@@ -27,10 +27,10 @@ const ChatRow = (props) => {
             </Left>
             <Body>
               <Text>{name}</Text>
-              <Text>{motto}</Text>
+              <Text>{motto.substring(0, 15)}...</Text>
             </Body>
             <Right>
-              <Text note>11:02 am</Text>
+              <Text note>{Math.round(Math.random()*7)+5}:{Math.round(Math.random()*50)+10} pm</Text>
             </Right>
           </ListItem>
         </List>
@@ -42,7 +42,7 @@ const styles = {
   container: {
     flexDirection: 'column',
     flex: 1,
-    height: 100,
+    height: 80,
     justifyContent: 'flex-start'
   }
 }
